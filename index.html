@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMP102 Ultimate Exam Portal</title>
+    <title>COMP102 Verbatim Premium Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Master Theme Variables Mapping */
+        /* Master Theme Mapping Strategy */
         body { background-color: #020617; color: #f8fafc; }
         .card-bg { background-color: #0f172a; border-color: #1e293b; color: #f1f5f9; }
         .code-box-bg { background-color: #020617; border-color: #334155; color: #34d399; }
@@ -23,14 +23,14 @@
         .nav-bg { background-color: #0f172a; border-color: #1e293b; }
         .option-wrapper { background-color: #020617; border-color: #1e293b; color: #cbd5e1; }
 
-        /* Light Theme High-Contrast Core Override Rules */
-        body.light-theme { background-color: #f8fafc; color: #0f172a; }
-        body.light-theme .card-bg { background-color: #ffffff; border-color: #cbd5e1; color: #0f172a; }
+        /* Light Theme High-Contrast Strict Rules Override */
+        body.light-theme { background-color: #f8fafc; color: #020617; }
+        body.light-theme .card-bg { background-color: #ffffff; border-color: #cbd5e1; color: #020617; }
         body.light-theme .code-box-bg { background-color: #f8fafc; border-color: #cbd5e1; color: #16a34a; }
-        body.light-theme .text-main { color: #0f172a; }
-        body.light-theme .text-muted { color: #475569; }
+        body.light-theme .text-main { color: #020617; }
+        body.light-theme .text-muted { color: #334155; }
         body.light-theme .nav-bg { background-color: #ffffff; border-color: #cbd5e1; }
-        body.light-theme .option-wrapper { background-color: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
+        body.light-theme .option-wrapper { background-color: #f8fafc; border-color: #cbd5e1; color: #020617; }
     </style>
 </head>
 <body id="app-body" class="min-h-screen flex flex-col selection:bg-indigo-500/30">
@@ -97,91 +97,90 @@
     <script>
         const examDatabase = {
             "room_2025": {
-                title: "Academic Year: 2024/2025 (Final Exam)",
-                meta: "Program: IT | Level: 1st Level | Date: 26-05-2025 | Time: 2 hours | Total: 50 marks",
+                title: "Academic Year: 2024/2025 (Final Exam) [cite: 15]",
+                meta: "Program: IT | Level: 1st Level | Date: 26-05-2025 | Time: 2 hours [cite: 4, 5, 6, 15]",
                 questions: [
-                    { id: "25_q1", type: "mcq", text: "Question 1: choose the correct answer:<br>1- What's wrong?", code: "for (int k=2, k<=12, k++)", options: ["The increment should always be ++k", "There should be a semicolon at the end of the statement", "The commas should be semicolons", "The variable must always be the letter i when using a for loop"], answer: 2 },
-                    { id: "25_q2", type: "mcq", text: "2- What's wrong?", code: "while ((i<10) && (i>24))", options: ["The test condition is always true", "The logical operator && cannot be used in a test condition", "The test condition is always false", "The while loop is an exit-condition loop"], answer: 2 },
-                    { id: "25_q3", type: "mcq", text: "3- Which one of the following for loops is an infinite loop?", options: ["A) for (int c=0; c <= 100; c++) cout << c;", "B) for (int c=0; c>=100; c++) cout << c;", "C) for (int c=0; c<=100; c--) cout << c;", "D) for (int c=0; c>=100; c--) cout << c;"], answer: 2 },
-                    { id: "25_q4", type: "mcq", text: "4-How many times will this loop execute?", code: "for (int i=1; i<=10; i+=2) { cout << i << \" \";}", options: ["A) 5", "B) 6", "C) 10", "D) Infinite"], answer: 0 },
-                    { id: "25_q5", type: "mcq", text: "5- How many times will \"Hello\" be printed?", code: "for (int i = 0; i < 3; i++)\n    for (int j = 0; j < 2; j++) { cout << \"Hello\"; }", options: ["A) 2", "B) 3", "C) 10", "D) 6"], answer: 3 },
-                    { id: "25_q6", type: "mcq", text: "6- What is the output of the following code?", code: "int i=1;\nwhile (i<=2) {\n    int j=1;\n    do {\n        cout << i + j << \" \";\n        j++;\n    } while (j<=2);\n    i++;\n}", options: ["A) 223", "B) 2334", "C) 234", "D) 2345"], answer: 1 },
-                    { id: "25_q7", type: "mcq", text: "7- What is the output of the following code?", code: "int x;\nfor (x=5; x <= 14 ; x += 3)\n    cout << x << \" \";", options: ["A) 11", "B) 13 14", "C) 5 8 11 14", "D) 17"], answer: 2 },
-                    { id: "25_q8", type: "mcq", text: "8- How many times does the cout statement in the following code execute?", code: "int a=2; int b=6;\nwhile(a<=10){\n    for(int b = 0; b<4; b=b+1) {\n        cout << a << \" \" << b << \" \";\n        a=a+1;\n    }\n}", options: ["A) 0", "B) 8", "C) 12", "D) 24"], answer: 2 },
-                    { id: "25_q9", type: "mcq", text: "9- What is the output of the following code?", code: "for(int x=8; x>=5; x=x-1)\n    cout<<x<<\" \";", options: ["A) 3765", "B) 876", "C) 765", "D) 8765"], answer: 3 },
-                    { id: "25_q10", type: "mcq", text: "10- What is the last number will be printed?", code: "int counter = 1; int num=5;\nwhile(counter < 5) {\n    num=num-1;\n    counter = counter + 1; }\ncout << counter << \" \" << num << endl;", options: ["A) 4 0", "B) 4 1", "C) 5.0", "D) 5 1"], answer: 3 },
-                    { id: "25_q11", type: "mcq", text: "11- What is the output of the following code?", code: "int U=8, L=2;\nint num1, num2, num3 = 12, num4 = 3;\nnum1 = num3; num2 = num4;\ncout << num1 << \" \" << num2 << endl;", options: ["A) 4 0", "B) 2 8", "C) 8 8", "D) 12 3"], answer: 3 },
-                    { id: "25_q12", type: "mcq", text: "12- What is the output of the following code?", code: "int x=12910;\nwhile(x!=0){\n    cout<<x%10;\n    x=x/10;}", options: ["A) 012910", "B) 029110", "C) 019210", "D) 011290"], answer: 2 },
-                    { id: "25_q13", type: "mcq", text: "13- What is the output of the following code?", code: "int x=2;\nswitch (x) {\n    case 1: cout << \"1\";\n    case 2: cout << \"2\";\n    case 3: cout << \"3\";\n    default: cout << \"Default\";}", options: ["A) 2", "B) 23 Default", "C) 2 Default", "D) error"], answer: 1 },
-                    { id: "25_q14", type: "mcq", text: "14- What is last value that will be printed?", code: "int n=8;\nfor(int i=1;i<=n;i++){\n    cout<<\"good\"<<i<<endl;\n    i+=2;\n}", options: ["A) good2", "B) good6", "C) good7", "D) good8"], answer: 2 },
-                    { id: "25_q15", type: "mcq", text: "15- What is the last value that will be printed?", code: "int n=5; bool flag=true;\nfor(int i=1;i<n;i++){\n    if(flag)\n        cout<<\"good \"<<i<<endl;\n    else\n        cout<<\"bad \"<<i<<endl;\n    flag = !flag;\n}", options: ["A) good 1", "B) bad 4", "C) good 3", "D) bad 2"], answer: 1 },
-                    { id: "25_q16", type: "mcq", text: "16- What is the 3rd value that will be printed?", code: "int x=1,y=8;\nwhile(x<y){\n    cout<<x<<\" hala \"<<y<<endl;\n    x++;\n    y--;}", options: ["A) 3 hala 6", "B) 2 hala 7", "C) 1 hala 8", "D) 4 hala 5"], answer: 0 },
-                    { id: "25_q17", type: "mcq", text: "17- What is the output of the following code?", code: "int i=0; int n=5;\nwhile(i<n){\n    cout<<i++;\n    i++;}", options: ["A) 012345", "B) 0135", "C) 013", "D) 024"], answer: 3 },
-                    { id: "25_q18", type: "mcq", text: "18- What is the output of the following code?", code: "for (int i=0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        cout << i*j << \" \"; } }", options: ["A) 0 0 0 1 0 2", "B) 010203", "C) 001/22", "D) 000/110"], answer: 0 },
-                    { id: "25_q19", type: "mcq", text: "19- What is the output of the following code?", code: "int y, x=1, total=0;\nwhile( x<=5 ) {\n    y=x*x;\n    total +=y;\n    ++x;}\ncout<<total;", options: ["A) 15", "B) 50", "C) 55", "D) 100"], answer: 2 },
-                    { id: "25_q20", type: "mcq", text: "20- What is the output of the following code?", code: "int cry(int &n) {\n    n++;\n    return n*2;} \nint fetcher(int num) {\n    if(num%2==0)\n        return cry(num)+num;\n    else\n        return cry(num)-num;}\nvoid main() {\n    for(int i=1;i<=6;i++){\n        cout<<fetcher(i); }}", options: ["A) 24195621", "B) 21945621", "C) 29415621", "D) 29412561"], answer: 2 },
-                    { id: "25_q21", type: "mcq", text: "21- What is the output of the following code?", code: "for(int i=1;i!=4;i++)\n    cout<<i;", options: ["A) 123", "B) 1234", "C) 13", "D) 24"], answer: 0 },
-                    { id: "25_q22", type: "mcq", text: "22- What is the output of the following code?", code: "int n=7, x=4, sum=0;\nfor (int i=1;i<x;i++){\n    for (int j=1;j<n;j++)\n        sum=sum+j;\n    if (i==x-2) {\n        int temp = n; n=x; x=temp; } }\ncout << sum;", options: ["A) 55", "B) 160", "C) 75", "D) 100"], answer: 1 },
-                    { id: "25_q23", type: "mcq", text: "23- What is the output of the following code?", code: "int bar(int x) {\n    return (x>0)?x+bar(x-1):0;}\nint main() {\n    cout << bar(4);\n    return 0;}", options: ["A) 4", "B) 6", "C) 10", "D) 12"], answer: 2 },
-                    { id: "25_q24", type: "mcq", text: "24- What is the output of the following code?", code: "int func(int x) { return x*2; }\ndouble func(double x) { return x*3; }\nvoid main() {\n    cout << func(5) << \" \" << func(5.0); }", options: ["A) 10 15", "B) 10 15.0", "C) 10.0 15.0", "D) error"], answer: 1 },
-                    { id: "25_q25", type: "mcq", text: "25- What is the output of the following code?", code: "int sum=0, n=5;\nfor(int i=1;i<n;i++){\n    cout<<sum<<\" \";\n    sum=sum*10+7;}", options: ["A) 0 7 77 777", "B) 0 7 77 000", "C) 00 00 777", "D) 0 700 777"], answer: 0 }
+                    { id: "25_q1", type: "mcq", text: "Question 1: choose the correct answer:<br>1- What's wrong? [cite: 8, 9]", code: "for (int k=2, k<=12, k++)", options: ["The increment should always be ++k", "There should be a semicolon at the end of the statement", "The commas should be semicolons", "The variable must always be the letter i when using a for loop"], answer: 2 },
+                    { id: "25_q2", type: "mcq", text: "2- What's wrong? [cite: 13]", code: "while ((i<10) && (i>24))", options: ["The test condition is always true", "The logical operator && cannot be used in a test condition", "The test condition is always false", "The while loop is an exit-condition loop"], answer: 2 },
+                    { id: "25_q3", type: "mcq", text: "3- Which one of the following for loops is an infinite loop? [cite: 22]", options: ["A) for (int c=0; c <= 100; c++) cout << c;", "B) for (int c=0; c>=100; c++) cout << c;", "C) for (int c=0; c<=100; c--) cout << c;", "D) for (int c=0; c>=100; c--) cout << c;"], answer: 2 },
+                    { id: "25_q4", type: "mcq", text: "4-How many times will this loop execute? [cite: 25]", code: "for (int i=1; i<=10; i+=2) {\n    cout << i << \" \";\n}", options: ["A) 5", "B) 6", "C) 10", "D) Infinite"], answer: 0 },
+                    { id: "25_q5", type: "mcq", text: "5- How many times will \"Hello\" be printed? [cite: 28]", code: "for (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        cout << \"Hello\";\n    }\n}", options: ["A) 2", "B) 3", "C) 10", "D) 6"], answer: 3 },
+                    { id: "25_q6", type: "mcq", text: "6- What is the output of the following code? [cite: 33]", code: "int i=1;\nwhile (i<=2) {\n    int j=1;\n    do {\n        cout << i + j << \" \";\n        j++;\n    } while (j<=2);\n    i++;\n}", options: ["A) 223", "B) 2334", "C) 234", "D) 2345"], answer: 1 },
+                    { id: "25_q7", type: "mcq", text: "7- What is the output of the following code? [cite: 33]", code: "int x;\nfor (x=5; x <= 14 ; x += 3)\n    cout << x << \" \";", options: ["A) 11", "B) 13 14", "C) 5 8 11 14", "D) 17"], answer: 2 },
+                    { id: "25_q8", type: "mcq", text: "8- How many times does the cout statement in the following code execute? [cite: 33]", code: "int a=2; int b=6;\nwhile(a<=10){\n    for(int b = 0; b<4; b=b+1) {\n        cout << a << \" \" << b << \" \";\n        a=a+1;\n    }\n}", options: ["A) 0", "B) 8", "C) 12", "D) 24"], answer: 2 },
+                    { id: "25_q9", type: "mcq", text: "9- What is the output of the following code? [cite: 33]", code: "for(int x=8; x>=5; x=x-1)\n    cout<<x<<\" \";", options: ["A) 3765", "B) 876", "C) 765", "D) 8765"], answer: 3 },
+                    { id: "25_q10", type: "mcq", text: "10- What is the last number will be printed? [cite: 33]", code: "int counter = 1; int num=5;\nwhile(counter < 5) {\n    num=num-1;\n    counter = counter + 1; \n}\ncout << counter << \" \" << num << endl;", options: ["A) 4 0", "B) 4 1", "C) 5.0", "D) 5 1"], answer: 3 },
+                    { id: "25_q11", type: "mcq", text: "11- What is the output of the following code? [cite: 33]", code: "int U=8, L=2;\nint num1, num2, num3 = 12, num4 = 3;\nnum1 = num3; num2 = num4;\ncout << num1 << \" \" << num2 << endl;", options: ["A) 4 0", "B) 2 8", "C) 8 8", "D) 12 3"], answer: 3 },
+                    { id: "25_q12", type: "mcq", text: "12- What is the output of the following code? [cite: 39]", code: "int x=12910;\nwhile(x!=0){\n    cout<<x%10;\n    x=x/10;}", options: ["A) 012910", "B) 029110", "C) 019210", "D) 011290"], answer: 2 },
+                    { id: "25_q13", type: "mcq", text: "13- What is the output of the following code? [cite: 39]", code: "int x=2;\nswitch (x) {\n    case 1: cout << \"1\";\n    case 2: cout << \"2\";\n    case 3: cout << \"3\";\n    default: cout << \"Default\";}", options: ["A) 2", "B) 23 Default", "C) 2 Default", "D) error"], answer: 1 },
+                    { id: "25_q14", type: "mcq", text: "14- What is last value that will be printed? [cite: 39]", code: "int n=8;\nfor(int i=1;i<=n;i++){\n    cout<<\"good\"<<i<<endl;\n    i+=2;\n}", options: ["A) good2", "B) good6", "C) good7", "D) good8"], answer: 2 },
+                    { id: "25_q15", type: "mcq", text: "15- What is the last value that will be printed? [cite: 39]", code: "int n=5; bool flag=true;\nfor(int i=1;i<n;i++){\n    if(flag)\n        cout<<\"good \"<<i<<endl;\n    else\n        cout<<\"bad \"<<i<<endl;\n    flag = !flag;\n}", options: ["A) good 1", "B) bad 4", "C) good 3", "D) bad 2"], answer: 1 },
+                    { id: "25_q16", type: "mcq", text: "16- What is the 3rd value that will be printed? [cite: 39]", code: "int x=1,y=8;\nwhile(x<y){\n    cout<<x<<\" hala \"<<y<<endl;\n    x++;\n    y--;}", options: ["A) 3 hala 6", "B) 2 hala 7", "C) 1 hala 8", "D) 4 hala 5"], answer: 0 },
+                    { id: "25_q17", type: "mcq", text: "17- What is the output of the following code? [cite: 39]", code: "int i=0; int n=5;\nwhile(i<n){\n    cout<<i++;\n    i++;}", options: ["A) 012345", "B) 0135", "C) 013", "D) 024"], answer: 3 },
+                    { id: "25_q18", type: "mcq", text: "18- What is the output of the following code? [cite: 39]", code: "for (int i=0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        cout << i*j << \" \"; } }", options: ["A) 0 0 0 1 0 2", "B) 010203", "C) 001/22", "D) 000/110"], answer: 0 },
+                    { id: "25_q19", type: "mcq", text: "19- What is the output of the following code? [cite: 39]", code: "int y, x=1, total=0;\nwhile( x<=5 ) {\n    y=x*x;\n    total +=y;\n    ++x;}\ncout<<total;", options: ["A) 15", "B) 50", "C) 55", "D) 100"], answer: 2 },
+                    { id: "25_q20", type: "mcq", text: "20- What is the output of the following code? [cite: 39]", code: "int cry(int &n) {\n    n++;\n    return n*2;} \nint fetcher(int num) {\n    if(num%2==0)\n        return cry(num)+num;\n    else\n        return cry(num)-num;}\nvoid main() {\n    for(int i=1;i<=6;i++){\n        cout<<fetcher(i); }}", options: ["A) 24195621", "B) 21945621", "C) 29415621", "D) 29412561"], answer: 2 },
+                    { id: "25_q21", type: "mcq", text: "21- What is the output of the following code? [cite: 39]", code: "for(int i=1;i!=4;i++)\n    cout<<i;", options: ["A) 123", "B) 1234", "C) 13", "D) 24"], answer: 0 },
+                    { id: "25_q22", type: "mcq", text: "22- What is the output of the following code? [cite: 39]", code: "int n=7, x=4, sum=0;\nfor (int i=1;i<x;i++){\n    for (int j=1;j<n;j++)\n        sum=sum+j;\n    if (i==x-2) {\n        int temp = n; n=x; x=temp; } }\ncout << sum;", options: ["A) 55", "B) 160", "C) 75", "D) 100"], answer: 1 },
+                    { id: "25_q23", type: "mcq", text: "23- What is the output of the following code? [cite: 39]", code: "int bar(int x) {\n    return (x>0)?x+bar(x-1):0;}\nint main() {\n    cout << bar(4);\n    return 0;}", options: ["A) 4", "B) 6", "C) 10", "D) 12"], answer: 2 },
+                    { id: "25_q24", type: "mcq", text: "24- What is the output of the following code? [cite: 39]", code: "int func(int x) { return x*2; }\ndouble func(double x) { return x*3; }\nvoid main() {\n    cout << func(5) << \" \" << func(5.0); }", options: ["A) 10 15", "B) 10 15.0", "C) 10.0 15.0", "D) error"], answer: 1 },
+                    { id: "25_q25", type: "mcq", text: "25- What is the output of the following code? [cite: 39]", code: "int sum=0, n=5;\nfor(int i=1;i<n;i++){\n    cout<<sum<<\" \";\n    sum=sum*10+7;}", options: ["A) 0 7 77 777", "B) 0 7 77 000", "C) 00 00 777", "D) 0 700 777"], answer: 0 }
                 ]
             },
             "room_2024": {
-                title: "Academic year: 2023/2024 (COMP102)",
-                meta: "Minia University | Date: 5/6/2024 | Semester: 2nd Semester | Time allowed: 2 hours",
+                title: "Academic year: 2023/2024 (COMP102) [cite: 51]",
+                meta: "Minia University | Date: 5/6/2024 | Semester: 2nd Semester | Time allowed: 2 hours [cite: 43, 45, 51]",
                 questions: [
-                    { id: "24_t1", type: "tf", text: "1. The break statement in a nested loop only exits the innermost loop.", answer: true },
-                    { id: "24_t2", type: "tf", text: "2. When passing a parameter by reference to a function, the memory location of the variable is passed, allowing the function to use and modify the same memory area.", answer: true },
-                    { id: "24_t3", type: "tf", text: "3. The substr() function can return a substring starting from a given position with a specified length.", answer: true },
-                    { id: "24_t4", type: "tf", text: "4. The do-while loop determines whether to start executing the loop's code at least once, while the while loop determines whether to repeat the code.", answer: false },
-                    { id: "24_t5", type: "tf", text: "5. It is possible to have a function that takes a parameter by reference and another by value.", answer: true },
-                    { id: "24_t6", type: "tf", text: "6. The continue statement immediately exits the loop and proceeds to the next iteration.", answer: false },
-                    { id: "24_t7", type: "tf", text: "7. The statement \"for (int Count = 0; Count < 2; Count++)\" has the same effect as \"for (int Inner = 1; Inner <= 2; Inner++)\".", answer: true },
-                    { id: "24_t8", type: "tf", text: "8. When a local variable has the same name as a global variable, the local variable takes precedence within its scope.", answer: true },
-                    { id: "24_t9", type: "tf", text: "9. To iterate through an array of 9 elements in reverse order, the loop for (int i=9; i>=0; i--) is used.", answer: false },
-                    { id: "24_t10", type: "tf", text: "10. The declaration int a[5][10]; in C++ creates a two-dimensional integer array with 10 rows and 5 columns.", answer: false },
-                    { id: "24_t11", type: "tf", text: "11. A variable declared within a nested block is accessible from the outer block.", answer: false },
-                    { id: "24_t12", type: "tf", text: "12. Arrays in C++ are zero-indexed, meaning the first element is accessed with index 1.", answer: false },
-                    { id: "24_t13", type: "tf", text: "13. The correct syntax for a for loop is \"for(initialization, condition, increment/decrement)\".", answer: false },
-                    { id: "24_t14", type: "tf", text: "14. Infinite loops can only be created using while loops, not for loops.", answer: false },
-                    { id: "24_t15", type: "tf", text: "15. You can assign a two-dimensional array to another using the = operator like \"arr2 = arr1;\".", answer: false },
-                    { id: "24_q2_a", type: "subjective", text: "Question 2 (a): Write a C++ program that ask user to input an array of 10 positive integer numbers. Then find and print the array element and its frequency if it has an odd number of occurrences in the given array. Note: avoid counting the same element multiple times by marking the counted elements as -1 after processing.<br>Example Input: {5, 7, 8, 2, 8, 5, 8, 7, 2, 7}<br>Output:<br>Number: 7, Frequency: 3<br>Number: 8, Frequency: 3", modelSolution: `#include <iostream>\nusing namespace std;\nint main() {\n    int arr[10]; int freq[10];\n    for(int i=0; i<10; i++) { cin >> arr[i]; freq[i] = 1; }\n    for(int i=0; i<10; i++) {\n        if(arr[i] != -1) {\n            for(int j=i+1; j<10; j++) {\n                if(arr[i] == arr[j]) { freq[i]++; arr[j] = -1; }\n            }\n            if(freq[i] % 2 != 0) cout << "Number: " << arr[i] << ", Frequency: " << freq[i] << endl;\n        }\n    }\n    return 0;\n}` },
-                    { id: "24_q2_b", type: "subjective", text: "b) Write a function that takes a string as a parameter, reverses the given string, and returns the reversed string.", modelSolution: `string reverseString(string str) {\n    int n = str.length();\n    for (int i = 0; i < n / 2; i++) swap(str[i], str[n - i - 1]);\n    return str;\n}` },
-                    { id: "24_q3_a1", type: "subjective", text: "Question 3 (a) Show the output of the following programs:<br>I.", code: "void main() {\n    int n=4;\n    for (int I = 0; I < n; I++)\n    {\n        for (int c = 0; c < 2*n-3; c++)\n        {\n            int first = n - I - 1;\n            int last = n - I + 1;\n            if (c < first || c > last) {\n                cout << \"-\"; }\n            else {\n                cout << \"*\"; }\n        }\n        cout << endl;\n    }\n}", modelSolution: `---*---\n--***--\n-*****-\n*******` },
-                    { id: "24_q3_a2", type: "subjective", text: "II.", code: "void main()\n{\n    for (int n = 2; n <= 3; n++)\n    {\n        int p = 1;\n        for (int i = 1; i <= 3; i++)\n            p = p * n;\n        cout << p;\n        cout << endl;\n    }\n}", modelSolution: `8\n27` }
+                    { id: "24_t1", type: "tf", text: "1. The break statement in a nested loop only exits the innermost loop. [cite: 52]", answer: true },
+                    { id: "24_t2", type: "tf", text: "2. When passing a parameter by reference to a function, the memory location of the variable is passed, allowing the function to use and modify the same memory area. [cite: 53]", answer: true },
+                    { id: "24_t3", type: "tf", text: "3. The substr() function can return a substring starting from a given position with a specified length. [cite: 54]", answer: true },
+                    { id: "24_t4", type: "tf", text: "4. The do-while loop determines whether to start executing the loop's code at least once, while the while loop determines whether to repeat the code. [cite: 55]", answer: false },
+                    { id: "24_t5", type: "tf", text: "5. It is possible to have a function that takes a parameter by reference and another by value. [cite: 56]", answer: true },
+                    { id: "24_t6", type: "tf", text: "6. The continue statement immediately exits the loop and proceeds to the next iteration. [cite: 57]", answer: false },
+                    { id: "24_t7", type: "tf", text: "7. The statement \"for (int Count = 0; Count < 2; Count++)\" has the same effect as \"for (int Inner = 1; Inner <= 2; Inner++)\". [cite: 58, 59]", answer: true },
+                    { id: "24_t8", type: "tf", text: "8. When a local variable has the same name as a global variable, the local variable takes precedence within its scope. [cite: 63]", answer: true },
+                    { id: "24_t9", type: "tf", text: "9. To iterate through an array of 9 elements in reverse order, the loop for (int i=9; i>=0; i--) is used. [cite: 64]", answer: false },
+                    { id: "24_t10", type: "tf", text: "10. The declaration int a[5][10]; in C++ creates a two-dimensional integer array with 10 rows and 5 columns. [cite: 64, 65]", answer: false },
+                    { id: "24_t11", type: "tf", text: "11. A variable declared within a nested block is accessible from the outer block. [cite: 66]", answer: false },
+                    { id: "24_t12", type: "tf", text: "12. Arrays in C++ are zero-indexed, meaning the first element is accessed with index 1. [cite: 67]", answer: false },
+                    { id: "24_t13", type: "tf", text: "13. The correct syntax for a for loop is \"for(initialization; condition; increment/decrement)\". [cite: 68]", answer: false },
+                    { id: "24_t14", type: "tf", text: "14. Infinite loops can only be created using while loops, not for loops. [cite: 68]", answer: false },
+                    { id: "24_t15", type: "tf", text: "15. You can assign a two-dimensional array to another using the = operator like \"arr2 = arr1;\". [cite: 69]", answer: false },
+                    { id: "24_q2_a", type: "subjective", text: "Question 2 (a): Write a C++ program that ask user to input an array of 10 positive integer numbers. Then find and print the array element and its frequency if it has an odd number of occurrences in the given array. Note: avoid counting the same element multiple times by marking the counted elements as -1 after processing. [cite: 70, 71, 72, 73]<br><br>Example Input: {5, 7, 8, 2, 8, 5, 8, 7, 2, 7} [cite: 74]<br>Output:<br>Number: 7, Frequency: 3 [cite: 76]<br>Number: 8, Frequency: 3 [cite: 77]", modelSolution: `#include <iostream>\nusing namespace std;\nint main() {\n    int arr[10]; int freq[10];\n    for(int i=0; i<10; i++) { cin >> arr[i]; freq[i] = 1; }\n    for(int i=0; i<10; i++) {\n        if(arr[i] != -1) {\n            for(int j=i+1; j<10; j++) {\n                if(arr[i] == arr[j]) { freq[i]++; arr[j] = -1; }\n            }\n            if(freq[i] % 2 != 0) cout << "Number: " << arr[i] << ", Frequency: " << freq[i] << endl;\n        }\n    }\n    return 0;\n}` },
+                    { id: "24_q2_b", type: "subjective", text: "b) Write a function that takes a string as a parameter, reverses the given string, and returns the reversed string. [cite: 79]", modelSolution: `string reverseString(string str) {\n    int n = str.length();\n    for (int i = 0; i < n / 2; i++) swap(str[i], str[n - i - 1]);\n    return str;\n}` },
+                    { id: "24_q3_a1", type: "subjective", text: "Question 3 (a) Show the output of the following programs: [cite: 80, 81]<br>I. [cite: 82]", code: "void main() {\n    int n=4;\n    for (int I = 0; I < n; I++)\n    {\n        for (int c = 0; c < 2*n-3; c++)\n        {\n            int first = n - I - 1;\n            int last = n - I + 1;\n            if (c < first || c > last) {\n                cout << \"-\"; }\n            else {\n                cout << \"*\"; }\n        }\n        cout << endl;\n    }\n}", modelSolution: `---*---\n--***--\n-*****-\n*******` },
+                    { id: "24_q3_a2", type: "subjective", text: "II. [cite: 98]", code: "void main()\n{\n    for (int n = 2; n <= 3; n++)\n    {\n        int p = 1;\n        for (int i = 1; i <= 3; i++)\n            p = p * n;\n        cout << p;\n        cout << endl;\n    }\n}", modelSolution: `8\n27` }
                 ]
             },
             "room_2023": {
-                title: "Academic year: 2022/2023 (COMP102)",
-                meta: "Date: 17/6/2023 | Time allowed: 2 hours | Level: 1st",
+                title: "Academic year: 2022/2023 (COMP102) [cite: 157]",
+                meta: "Date: 17/6/2023 | Time allowed: 2 hours | Level: 1st [cite: 151, 152, 157]",
                 questions: [
-                    { id: "23_q1_a", type: "subjective", text: "Question 1 Show the output of the following programs:<br>a)", code: "void main() {\n    int num = 4;\n    int i = 2;\n    while (i <= 4)\n    {\n        for (int j = 1; j < i + 3; j += 3)\n        {\n            cout << num << \" \";\n        }\n        num *= 2;\n        cout << endl;\n        i++;\n    }\n}", modelSolution: `4 \n8 \n16 16 ` },
-                    { id: "23_q1_b", type: "subjective", text: "b)", code: "void main() {\n    int Control = 2;\n    int Sum = 0;\n    while (Control < 5)\n    {\n        for (int Inner = 1; Inner <= 2; Inner++)\n        {\n            Sum = Sum + Control;\n        }\n        Control = Control + Control;\n    }\n    cout << \"Control=\" << Control << \", \" << \"Sum=\" << Sum << endl;\n}", modelSolution: `Control=8, Sum=12` },
-                    { id: "23_q2_a1", type: "subjective", text: "Question 2 (a) Rewrite the following program fragment using 1- For instead of While:", code: "int i = -2;\nint s = 5;\nwhile (i <= s) {\n    i = i + 2;\n    cout << (i + s) << endl;\n    s--;\n}", modelSolution: `for (int i = -2, s = 5; i <= s; s--) {\n    i = i + 2;\n    cout << (i + s) << endl;\n}` }
+                    { id: "23_q1_a", type: "subjective", text: "Question 1 Show the output of the following programs: [cite: 158]<br>a) [cite: 159]", code: "void main() {\n    int num = 4;\n    int i = 2;\n    while (i <= 4)\n    {\n        for (int j = 1; j < i + 3; j += 3)\n        {\n            cout << num << \" \";\n        }\n        num *= 2;\n        cout << endl;\n        i++;\n    }\n}", modelSolution: `4 \n8 \n16 16 ` },
+                    { id: "23_q1_b", type: "subjective", text: "b) [cite: 163]", code: "void main() {\n    int Control = 2;\n    int Sum = 0;\n    while (Control < 5)\n    {\n        for (int Inner = 1; Inner <= 2; Inner++)\n        {\n            Sum = Sum + Control;\n        }\n        Control = Control + Control;\n    }\n    cout << \"Control=\" << Control << \", \" << \"Sum=\" << Sum << endl;\n}", modelSolution: `Control=8, Sum=12` }
                 ]
             },
             "room_2022": {
-                title: "Academic year: 2021/2022 (COMP102)",
-                meta: "Date: 18/6/2022 | Time allowed: 2 hours | Total Marks: 50 marks",
+                title: "Academic year: 2021/2022 (COMP102) [cite: 252]",
+                meta: "Date: 18/6/2022 | Time allowed: 2 hours | Total Marks: 50 marks [cite: 248, 252]",
                 questions: [
-                    { id: "22_q1", type: "mcq", text: "1. How many times \"Ankit\" is get printed?", code: "int main()\n{\n    int x;\n    for(x=-1; x <=10; x++)\n        if (x<5)\n            continue;\n        else\n            break;\n    cout<<(\"Ankit\");\n    return 0;\n}", options: ["A. Infinite times", "B. 11 times", "C. 0 times", "D. 10 times"], answer: 2 },
-                    { id: "22_q2", type: "mcq", text: "2. What is the output of C++ Program.?", code: "int main()\n{\n    int a=32;\n    do\n    {\n        cout << (a);\n        a++;\n        if(a>35)\n            break;\n    } while(1);\n    return 0;\n}", options: ["A. No Output", "B. 32 33 34", "C. 32 33 34 35", "D. Compiler error"], answer: 2 },
-                    { id: "22_q3", type: "mcq", text: "3. What will happen while using pass by reference", options: ["A. The values of those variables are passed to the function so that it can manipulate them", "B. The function declaration should not contain ampersand (&).", "C. The location of variable in memory is passed to the function so that it can use the same memory area for its processing.", "D. None of above"], answer: 2 },
-                    { id: "22_q4", type: "mcq", text: "4. After execution, what are the values for i and j?", code: "void main() {\n    int i=1, j=10;\n    do {\n        if (i++ > --j)\n            continue;\n    } while (i<5);\n}", options: ["A. i=6 and j=5", "B. i=5 and j=5", "C. i=6 and j=4", "D. i=5 and j=6", "E. i=6 and j=6"], answer: 4 },
-                    { id: "22_q5", type: "mcq", text: "5. What would be printed by the following statements?", code: "int y[3][3]={1,2,3,\n             4, 5, 6,\n             7, 8, 9};\ncout<<y[1][2];", options: ["A. 6", "B. 2", "C. 4", "D. 5"], answer: 0 },
-                    { id: "22_q6", type: "mcq", text: "6. Find out the error in following block of code.", code: "if (x==100)\n    cout << \"x is 100\";", options: ["A. 100 should be enclosed in quotations", "B. There is no semicolon at the end of first line", "C. Variable x should not be inside quotation", "D. Equals to operator mistake"], answer: 3 },
-                    { id: "22_q7", type: "mcq", text: "7. Which Boolean expression is equivalent to the statement: \"the cat has rabies and does not weight 20 pounds or less\"? suppose that catRabies and cat Weight are two variables that are declared as follow: Bool catRabies; double catWeight;", options: ["A. (catRabies != true) && (catWeight>=20)", "B. (catWeight<20.0)||(catRabies==true)", "C. !(catRabies==true)&&(catWeight<=20)", "D. (catRabies == true) && (catWeight > 20.0)", "E. None of the above"], answer: 3 }
+                    { id: "22_q1", type: "mcq", text: "1. How many times \"Ankit\" is get printed? [cite: 254]", code: "int main()\n{\n    int x;\n    for(x=-1; x <=10; x++)\n        if (x<5)\n            continue;\n        else\n            break;\n    cout<<(\"Ankit\");\n    return 0;\n}", options: ["A. Infinite times", "B. 11 times", "C. 0 times", "D. 10 times"], answer: 2 },
+                    { id: "22_q2", type: "mcq", text: "2. What is the output of C++ Program.? [cite: 258]", code: "int main()\n{\n    int a=32;\n    do\n    {\n        cout << (a);\n        a++;\n        if(a>35)\n            break;\n    } while(1);\n    return 0;\n}", options: ["A. No Output", "B. 32 33 34", "C. 32 33 34 35", "D. Compiler error"], answer: 2 },
+                    { id: "22_q3", type: "mcq", text: "3. What will happen while using pass by reference [cite: 287]", options: ["A. The values of those variables are passed to the function so that it can manipulate them", "B. The function declaration should not contain ampersand (&).", "C. The location of variable in memory is passed to the function so that it can use the same memory area for its processing.", "D. None of above"], answer: 2 },
+                    { id: "22_q4", type: "mcq", text: "4. After execution, what are the values for i and j? [cite: 298]", code: "void main() {\n    int i=1, j=10;\n    do {\n        if (i++ > --j)\n            continue;\n    } while (i<5);\n}", options: ["A. i=6 and j=5", "B. i=5 and j=5", "C. i=6 and j=4", "D. i=5 and j=6", "E. i=6 and j=6"], answer: 4 },
+                    { id: "22_q5", type: "mcq", text: "5. What would be printed by the following statements? [cite: 309, 310]", code: "int y[3][3]={1,2,3,\n             4, 5, 6,\n             7, 8, 9};\ncout<<y[1][2];", options: ["A. 6", "B. 2", "C. 4", "D. 5"], answer: 0 },
+                    { id: "22_q6", type: "mcq", text: "6. Find out the error in following block of code. [cite: 309]", code: "if (x==100)\n    cout << \"x is 100\";", options: ["A. 100 should be enclosed in quotations", "B. There is no semicolon at the end of first line", "C. Variable x should not be inside quotation", "D. Equals to operator mistake"], answer: 3 },
+                    { id: "22_q7", type: "mcq", text: "7. Which Boolean expression is equivalent to the statement: \"the cat has rabies and does not weight 20 pounds or less\"? suppose that catRabies and cat Weight are two variables that are declared as follow: Bool catRabies; double catWeight; [cite: 326, 327, 328, 329, 330, 331]", options: ["A. (catRabies != true) && (catWeight>=20)", "B. (catWeight<20.0)||(catRabies==true)", "C. !(catRabies==true)&&(catWeight<=20)", "D. (catRabies == true) && (catWeight > 20.0)", "E. None of the above"], answer: 3 }
                 ]
             },
             "room_2021": {
-                title: "Academic year: 2020/2021 (COMP102)",
-                meta: "Semester: 2nd Semester | Time allowed: 2 hours | Total Marks: 50 marks",
+                title: "Academic year: 2020/2021 (COMP102) [cite: 487]",
+                meta: "Computer Science Dept | Semester: 2nd Semester | Time allowed: 2 hours [cite: 484, 487, 488]",
                 questions: [
-                    { id: "21_q1", type: "mcq", text: "1. How many times \"Ankit\" is get printed?", code: "int main()\n{\n    int x;\n    for(x=-1; x<=10; x++)\n        if (x<5)\n            continue;\n        else\n            break;\n    cout<<(\"Ankit\");\n    return 0;\n}", options: ["A. Infinite times.", "B. 11 times", "C. 0 times", "D. 10 times"], answer: 2 },
-                    { id: "21_q2", type: "mcq", text: "2. What is the output of C++ program?", code: "int main()\n{\n    int a=32;\n    do\n    {\n        cout << (a);\n        a++;\n        if(a>35)\n            break;\n    } while(1);\n    return 0;\n}", options: ["A. No output.", "B. 32 33 34", "C. 32 33 34 35", "D. Compiler error."], answer: 2 },
-                    { id: "21_q3", type: "mcq", text: "3. What will be the output of the following C++ code?", code: "void main()\n{\n    int array1[] = {1200, 200, 2300, 1230, 1543};\n    int array2[] = {12, 14, 16, 18, 20};\n    int temp, result = 0;\n    for (temp = 0; temp < 5; temp++) {\n        result += array1 [temp];\n    }\n    for (temp = 0; temp < 4; temp++) {\n        result += array2[temp];\n    }\n    cout << result;\n}", options: ["A. 6522", "B. 6553", "C. 6533", "D. 12200"], answer: 1 },
-                    { id: "21_q4", type: "mcq", text: "4. How many times will the program execute the code inside the loop?", code: "void main()\n{\n    int Sum = 0;\n    int Num = 1;\n    while (Sum<10) {\n        Sum=Sum+Num;\n        Num=Num+1;\n    }\n}", options: ["A. 0", "B. 5", "C. 4", "D. 10"], answer: 2 }
+                    { id: "21_q1", type: "mcq", text: "Question 1: Choose the correct answer and fill your answer on the answer table<br>1. How many times \"Ankit\" is get printed? [cite: 489, 490]", code: "int main()\n{\n    int x;\n    for(x=-1; x<=10; x++)\n        if (x<5)\n            continue;\n        else\n            break;\n    cout<<(\"Ankit\");\n    return 0;\n}", options: ["A. Infinite times.", "B. 11 times", "C. 0 times", "D. 10 times"], answer: 2 },
+                    { id: "21_q2", type: "mcq", text: "2. What is the output of C++ program? [cite: 494]", code: "int main()\n{\n    int a=32;\n    do\n    {\n        cout << (a);\n        a++;\n        if(a>35)\n            break;\n    } while(1);\n    return 0;\n}", options: ["A. No output.", "B. 32 33 34", "C. 32 33 34 35", "D. Compiler error."], answer: 2 },
+                    { id: "21_q3", type: "mcq", text: "3. What will be the output of the following C++ code? [cite: 514, 515]", code: "void main()\n{\n    int array1[] = {1200, 200, 2300, 1230, 1543};\n    int array2[] = {12, 14, 16, 18, 20};\n    int temp, result = 0;\n    for (temp = 0; temp < 5; temp++) {\n        result += array1 [temp];\n    }\n    for (temp = 0; temp < 4; temp++) {\n        result += array2[temp];\n    }\n    cout << result;\n}", options: ["A. 6522", "B. 6553", "C. 6533", "D. 12200"], answer: 1 },
+                    { id: "21_q4", type: "mcq", text: "4. How many times will the program execute the code inside the loop? [cite: 542, 543]", code: "void main()\n{\n    int Sum = 0;\n    int Num = 1;\n    while (Sum<10) {\n        Sum=Sum+Num;\n        Num=Num+1;\n    }\n}", options: ["A. 0", "B. 5", "C. 4", "D. 10"], answer: 2 }
                 ]
             }
         };
@@ -193,28 +192,28 @@
 
         function loadStateFromStorage() {
             try {
-                const storedScores = localStorage.getItem("flawless_portal_scores");
-                const storedAnswers = localStorage.getItem("flawless_portal_answers");
-                const storedActiveRoom = localStorage.getItem("flawless_portal_activeRoom");
-                const storedTheme = localStorage.getItem("flawless_portal_theme");
+                const storedScores = localStorage.getItem("ultimate_portal_scores_v5");
+                const storedAnswers = localStorage.getItem("ultimate_portal_answers_v5");
+                const storedActiveRoom = localStorage.getItem("ultimate_portal_activeRoom_v4");
+                const storedTheme = localStorage.getItem("ultimate_portal_theme_v4");
                 
                 if (storedScores) roomScores = JSON.parse(storedScores);
                 if (storedAnswers) userAnswers = JSON.parse(storedAnswers);
                 if (storedActiveRoom && examDatabase[storedActiveRoom]) activeRoomKey = storedActiveRoom;
                 if (storedTheme) currentTheme = storedTheme;
             } catch (e) {
-                console.error("Storage system read error:", e);
+                console.error("Storage system execution error thread:", e);
             }
         }
 
         function saveStateToStorage() {
             try {
-                localStorage.setItem("flawless_portal_scores", JSON.stringify(roomScores));
-                localStorage.setItem("flawless_portal_answers", JSON.stringify(userAnswers));
-                localStorage.setItem("flawless_portal_activeRoom", activeRoomKey);
-                localStorage.setItem("flawless_portal_theme", currentTheme);
+                localStorage.setItem("ultimate_portal_scores_v5", JSON.stringify(roomScores));
+                localStorage.setItem("ultimate_portal_answers_v5", JSON.stringify(userAnswers));
+                localStorage.setItem("ultimate_portal_activeRoom_v4", activeRoomKey);
+                localStorage.setItem("ultimate_portal_theme_v4", currentTheme);
             } catch (e) {
-                console.error("Storage system write error:", e);
+                console.error("Storage state context storage write error:", e);
             }
         }
 
@@ -275,7 +274,7 @@
                 if (state.total > 0) {
                     const pct = Math.round((state.score / state.total) * 100);
                     badge.innerText = `${pct}%`;
-                    badge.className = `text-[9px] px-1.5 py-0.2 rounded border font-bold ${pct >= 50 ? 'bg-emerald-950/40 text-emerald-500 border-emerald-800/30' : 'bg-rose-950/40 text-rose-400 border-rose-800/30'}`;
+                    badge.className = `text-[9px] px-1.5 py-0.2 rounded border font-bold ${pct >= 50 ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/30' : 'bg-rose-950/40 text-rose-400 border-rose-800/30'}`;
                 } else {
                     badge.innerText = "DONE";
                     badge.className = "text-[9px] px-1.5 py-0.2 rounded border font-bold bg-indigo-950/40 text-indigo-400 border-indigo-800/30";
@@ -337,10 +336,10 @@
 
                 if (q.code) {
                     const codeBox = document.createElement("div");
-                    codeBox.className = "code-box-bg relative rounded-xl border p-4 shadow-inner overflow-x-auto my-3";
+                    codeBox.className = "code-box-bg relative rounded-xl border p-4 shadow-inner overflow-x-auto my-3 block whitespace-pre-wrap";
                     codeBox.innerHTML = `
                         <div class="absolute right-3 top-2 text-[9px] font-bold text-slate-500 uppercase tracking-widest pointer-events-none select-none code-font">C++ Code</div>
-                        <pre class="code-font text-xs md:text-sm font-medium leading-relaxed whitespace-pre">${q.code}</pre>
+                        <pre class="code-font text-xs md:text-sm font-medium leading-relaxed block whitespace-pre-wrap">${q.code}</pre>
                     `;
                     card.appendChild(codeBox);
                 }
@@ -383,13 +382,13 @@
                     const textDiv = document.createElement("div");
                     textDiv.className = "space-y-3 pt-1";
                     textDiv.innerHTML = `
-                        <textarea id="input-${q.id}" rows="5" ${isSubmitted ? 'disabled' : ''} oninput="storeAnswer('${q.id}', this.value)" class="w-full bg-slate-950/20 border border-slate-700/80 rounded-xl p-4 code-font text-xs md:text-sm text-emerald-500 focus:outline-none transition-colors" placeholder="// Input code / analysis answer here...">${savedAnswer || ""}</textarea>
+                        <textarea id="input-${q.id}" rows="5" ${isSubmitted ? 'disabled' : ''} oninput="storeAnswer('${q.id}', this.value)" class="w-full bg-slate-950/20 border border-slate-700/80 focus:border-indigo-500/50 rounded-xl p-4 code-font text-xs md:text-sm text-emerald-500 focus:outline-none transition-colors" placeholder="// Input your custom response script/code context evaluation here...">${savedAnswer || ""}</textarea>
                         <button type="button" onclick="toggleSolution('${q.id}')" class="text-[11px] text-indigo-500 hover:text-indigo-400 font-bold flex items-center gap-1.5 cursor-pointer select-none">
                             <span>💡 View Reference Model Solution</span>
                         </button>
                         <div id="sol-${q.id}" class="hidden bg-slate-950/20 border border-slate-700 rounded-xl p-4 space-y-2">
                             <div class="text-[10px] uppercase tracking-wider font-bold text-indigo-500">Solution Template:</div>
-                            <pre class="code-font text-main text-xs whitespace-pre-wrap leading-relaxed">${q.modelSolution}</pre>
+                            <pre class="code-font text-main text-xs block whitespace-pre-wrap leading-relaxed">${q.modelSolution}</pre>
                         </div>
                     `;
                     card.appendChild(textDiv);
@@ -451,7 +450,7 @@
 
                     const correctWrapper = document.getElementById(`wrapper-${q.id}-${q.answer}`);
                     if (correctWrapper) {
-                        correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-bold rounded-xl opacity-100";
+                        correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-bold rounded-xl opacity-100 shadow-sm";
                     }
 
                     if (savedAns !== undefined) {
@@ -516,7 +515,7 @@
 
             if (state && state.submitted && state.total > 0) {
                 banner.classList.remove("hidden");
-                document.getElementById("room-score-breakdown").innerText = `You scored ${state.score} out of ${state.total} questions cleanly inside this exam workspace module iteration.`;
+                document.getElementById("room-score-breakdown").innerText = `You scored ${state.score} out of ${state.total} binary/multiple-choice items accurately.`;
                 const pct = Math.round((state.score / state.total) * 100);
                 document.getElementById("room-percentage-badge").innerText = `${pct}%`;
             } else {
