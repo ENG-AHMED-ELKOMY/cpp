@@ -84,23 +84,23 @@ const examDatabase = {
             { id: "25_q6", type: "mcq", text: "6- What is the output of the following code?", code: "int i=1;\nwhile (i<=2) {\n    int j=1;\n    do {\n        cout << i + j << \" \";\n        j++;\n    } while (j<=2);\n    i++;\n}", options: ["A) 223", "B) 2334", "C) 234", "D) 2345"], answer: 1 },
             { id: "25_q7", type: "mcq", text: "7- What is the output of the following code?", code: "int x;\nfor (x=5; x <= 14 ; x += 3)\n    cout << x << \" \";", options: ["A) 11", "B) 13 14", "C) 5 8 11 14", "D) 17"], answer: 2 },
             { id: "25_q8", type: "mcq", text: "8- How many times does the cout statement in the following code execute?", code: "int a=2; int b=6;\nwhile(a<=10){\n    for(int b = 0; b<4; b=b+1) {\n        cout << a << \" \" << b << \" \";\n        a=a+1;\n    }\n}", options: ["A) 0", "B) 8", "C) 12", "D) 24"], answer: 2 },
-            { id: "25_q9", type: "mcq", text: "9- What is the output of the following code?", code: "for(int x=8; x>=5; x=x-1)\n    cout<<x<<\" \";", options: ["A) 3765", "B) 876", "C) 765", "D) 8765"], answer: 3 },
-            { id: "25_q10", type: "mcq", text: "10- What is the last number will be printed?", code: "int counter = 1; int num=5;\nwhile(counter < 5) {\n    num=num-1;\n    counter = counter + 1; \n}\ncout << counter << \" \" << num << endl;", options: ["A) 4 0", "B) 4 1", "C) 5 0", "D) 5 1"], answer: 3 },
-            { id: "25_q11", type: "mcq", text: "11- What is the output of the following code?", code: "int U=8, L=2;\nint num1, num2, num3 = 12, num4 = 3;\nnum1 = num3; num2 = num4;\ncout << num1 << \" \" << num2 << endl;", options: ["A) 4 0", "B) 2 8", "C) 8 8", "D) 12 3"], answer: 3 },
-            { id: "25_q12", type: "mcq", text: "12- What is the output of the following code?", code: "int x=12910;\nwhile(x!=0){\n    cout<<x%10;\n    x=x/10;}", options: ["A) 012910", "B) 029110", "C) 019210", "D) 011290"], answer: 2 },
+            { id: "25_q9", type: "mcq", text: "9- What is the output of the following code?", code: "for(int x=8; x>=5; x=x-1)\n   cout << x << \" \";", options: ["A) 8 7 6 5", "B) 8 7 6", "C) 7 6 5", "D) 5 6 7 8"], answer: 3 },
+            { id: "25_q10", type: "mcq", text: "10- What is the last number will be printed?", code: "int x;\nfor (int x = 5; x <= 14; x+=3) {\n    cout << x << endl;\n    cout << x << endl;\n}", options: ["A) 11", "B) 13", "C) 14", "D) 17"], answer: 3 },
+            { id: "25_q11", type: "mcq", text: "11- What is the output of the following code?", code: "int U=8, L=2;\nint num1, num2, num3 = 12, num4 = 3;\nnum1 = num3; num2 = num4;\ncout << num1 << \" \" << num2 << endl;", options: ["A) 8 2", "B) 2 8", "C) 8 8", "D) 2 2"], answer: 3 },
+            { id: "25_q12", type: "mcq", text: "12- What is the output of the following code?", code: "int y, x = 1, total = 0;\nwhile(x <= 5) {\n    y = x * x;\n    total += y;\n    ++x;\n}\ncout << total;", options: ["A) 15", "B) 50", "C) 55", "D) 100"], answer: 2 },
             { id: "25_q13", type: "mcq", text: "13- What is the output of the following code?", code: "int x=2;\nswitch (x) {\n    case 1: cout << \"1\";\n    case 2: cout << \"2\";\n    case 3: cout << \"3\";\n    default: cout << \"Default\";}", options: ["A) 2", "B) 23 Default", "C) 2 Default", "D) error"], answer: 1 },
-            { id: "25_q14", type: "mcq", text: "14- What is last value that will be printed?", code: "int n=8;\nfor(int i=1;i<=n;i++){\n    cout<<\"good\"<<i<<endl;\n    i+=2;\n}", options: ["A) good2", "B) good6", "C) good7", "D) good8"], answer: 2 },
-            { id: "25_q15", type: "mcq", text: "15- What is the last value that will be printed?", code: "int n=5; bool flag=true;\nfor(int i=1;i<n;i++){\n    if(flag)\n        cout<<\"good \"<<i<<endl;\n    else\n        cout<<\"bad \"<<i<<endl;\n    flag = !flag;\n}", options: ["A) good 1", "B) bad 4", "C) good 3", "D) bad 2"], answer: 1 },
-            { id: "25_q16", type: "mcq", text: "16- What is the 3rd value that will be printed?", code: "int x=1,y=8;\nwhile(x<y){\n    cout<<x<<\" hala \"<<y<<endl;\n    x++;\n    y--;}", options: ["A) 3 hala 6", "B) 2 hala 7", "C) 1 hala 8", "D) 4 hala 5"], answer: 0 },
-            { id: "25_q17", type: "mcq", text: "17- What is the output of the following code?", code: "int i=0; int n=5;\nwhile(i<n){\n    cout<<i++;\n    i++;}", options: ["A) 012345", "B) 0135", "C) 013", "D) 024"], answer: 3 },
-            { id: "25_q18", type: "mcq", text: "18- What is the output of the following code?", code: "for (int i=0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        cout << i*j << \" \"; } }", options: ["A) 0 0 0 1 0 2", "B) 010203", "C) 001/22", "D) 000/110"], answer: 0 },
-            { id: "25_q19", type: "mcq", text: "19- What is the output of the following code?", code: "int y, x=1, total=0;\nwhile( x<=5 ) {\n    y=x*x;\n    total +=y;\n    ++x;}\ncout<<total;", options: ["A) 15", "B) 50", "C) 55", "D) 100"], answer: 2 },
-            { id: "25_q20", type: "mcq", text: "20- What is the output of the following code?", code: "int cry(int &n) {\n    n++;\n    return n*2;} \nint fetcher(int num) {\n    if(num%2==0)\n        return cry(num)+num;\n    else\n        return cry(num)-num;}\nvoid main() {\n    for(int i=1;i<=6;i++){\n        cout<<fetcher(i); }}", options: ["A) 24195621", "B) 21945621", "C) 29415621", "D) 29412561"], answer: 2 },
-            { id: "25_q21", type: "mcq", text: "21- What is the output of the following code?", code: "for(int i=1;i!=4;i++)\n    cout<<i;", options: ["A) 123", "B) 1234", "C) 13", "D) 24"], answer: 0 },
-            { id: "25_q22", type: "mcq", text: "22- What is the output of the following code?", code: "int n=7, x=4, sum=0;\nfor (int i=1;i<x;i++){\n    for (int j=1;j<n;j++)\n        sum=sum+j;\n    if (i==x-2) {\n        int temp = n; n=x; x=temp; } }\ncout << sum;", options: ["A) 55", "B) 160", "C) 75", "D) 100"], answer: 1 },
+            { id: "25_q14", type: "mcq", text: "14- What is last value that will be printed?", code: "int n = 8;\nfor(int i = 1; i <= n; i++){\n    cout << \"good\" << i << endl;\n    i += 2;\n}", options: ["A) good2", "B) good6", "C) good7", "D) good8"], answer: 2 },
+            { id: "25_q15", type: "mcq", text: "15- What is the last value that will be printed?", code: "int n = 5; bool flag = true;\nfor(int i = 1; i < n; i++) {\n    if(flag)\n        cout << \"good \" << i << endl;\n    else\n        cout << \"bad \" << i << endl;\n    flag = !flag;\n}", options: ["A) good 1", "B) bad 4", "C) good 3", "D) bad 2"], answer: 1 },
+            { id: "25_q16", type: "mcq", text: "16- What is the 3rd value that will be printed?", code: "int x = 1, y = 8;\nwhile(x < y){\n    cout << x << \" hala \" << y << endl;\n    x++;\n    y--;\n}", options: ["A) 3 hala 6", "B) 2 hala 7", "C) 1 hala 8", "D) 4 hala 5"], answer: 0 },
+            { id: "25_q17", type: "mcq", text: "17- What is the output of the following code?", code: "int i = 0, n = 5;\nwhile(i < n){\n    cout << i++;\n    i++;\n}", options: ["A) 012345", "B) 0135", "C) 013", "D) 024"], answer: 3 },
+            { id: "25_q18", type: "mcq", text: "18- What is the output of the following code?", code: "for (int i=0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        cout << i*j << \" \"; } }", options: ["A) 0 0 0 1 0 2", "B) 0 1 0 2 0 3", "C) 0 0 1 1 2 2", "D) 0 0 0 1 1 1 0"], answer: 0 },
+            { id: "25_q19", type: "mcq", text: "19- What is the output of the following code?", code: "int x = 12910;\nwhile(x != 0){\n    cout << x % 10;\n    x = x / 10;\n}\ncout << x;", options: ["A) 012910", "B) 029110", "C) 019210", "D) 011290"], answer: 2 },
+            { id: "25_q20", type: "mcq", text: "20- What is the output of the following code?", code: "int cry(int &n) {\n    n++;\n    return n*2;\n}\nint fetcher(int num) {\n    if(num%2==0)\n        return cry(num)+num;\n    else\n        return cry(num)-num;\n}\nvoid main() {\n    for(int i=1;i<=6;i++) {\n        cout << fetcher(i) << \" \";\n    }\n}", options: ["A) 24195621", "B) 21945621", "C) 29415621", "D) 29412561"], answer: 2 },
+            { id: "25_q21", type: "mcq", text: "21- What is the output of the following code?", code: "for(int i=1;i!=4;i++)\n    cout<<i<<\" \";", options: ["A) 123", "B) 1234", "C) 13", "D) 24"], answer: 0 },
+            { id: "25_q22", type: "mcq", text: "22- What is the output of the following code?", code: "int n=7, x=4, sum=0;\nfor (int i=1;i<x;i++){\n    for (int j=1;j<n;j++)\n        sum=sum+j;\n    if (i==x-2) {\n        int temp = n; n=x; x=temp; } }\ncout << sum;", options: ["A) 55", "B) 60", "C) 75", "D) 100"], answer: 1 },
             { id: "25_q23", type: "mcq", text: "23- What is the output of the following code?", code: "int bar(int x) {\n    return (x>0)?x+bar(x-1):0;}\nint main() {\n    cout << bar(4);\n    return 0;}", options: ["A) 4", "B) 6", "C) 10", "D) 12"], answer: 2 },
             { id: "25_q24", type: "mcq", text: "24- What is the output of the following code?", code: "int func(int x) { return x*2; }\ndouble func(double x) { return x*3; }\nvoid main() {\n    cout << func(5) << \" \" << func(5.0); }", options: ["A) 10 15", "B) 10 15.0", "C) 10.0 15.0", "D) error"], answer: 1 },
-            { id: "25_q25", type: "mcq", text: "25- What is the output of the following code?", code: "int sum=0, n=5;\nfor(int i=1;i<n;i++){\n    cout<<sum<<\" \";\n    sum=sum*10+7;}", options: ["A) 0 7 77 777", "B) 0 7 77 000", "C) 00 00 777", "D) 0 700 777"], answer: 0 }
+            { id: "25_q25", type: "mcq", text: "25- What is the output of the following code?", code: "int sum=0, n=5;\nfor(int i=1;i<n;i++){\n    cout<<sum<<\" \";\n    sum=sum*10+7;}", options: ["A) 0 7 77 777", "B) 0 7 77 000", "C) 0 0 00 777", "D) 0 7 00 777"], answer: 0 }
         ]
     },
     "room_2024": {
@@ -321,7 +321,14 @@ Seg 6: !x>20 is wrong (! applies to x first) → fix: if(!(x>20)) cout<<x;` },
                 if (q.code) {
                     const codeBox = document.createElement("div");
                     codeBox.className = "code-box-bg relative rounded-xl border p-4 shadow-inner overflow-x-auto my-3 block whitespace-pre-wrap";
-                    codeBox.innerHTML = `<div class="absolute right-3 top-2 text-[9px] font-bold text-slate-500 uppercase tracking-widest pointer-events-none select-none code-font">C++ Code</div><pre class="code-font text-xs md:text-sm font-medium leading-relaxed block whitespace-pre-wrap">${q.code}</pre>`;
+                    const codeLabel = document.createElement("div");
+                    codeLabel.className = "absolute right-3 top-2 text-[9px] font-bold text-slate-500 uppercase tracking-widest pointer-events-none select-none code-font";
+                    codeLabel.textContent = "C++ Code";
+                    const codePre = document.createElement("pre");
+                    codePre.className = "code-font text-xs md:text-sm font-medium leading-relaxed block whitespace-pre-wrap";
+                    codePre.textContent = q.code;
+                    codeBox.appendChild(codeLabel);
+                    codeBox.appendChild(codePre);
                     card.appendChild(codeBox);
                 }
                 const savedAnswer = userAnswers[activeRoomKey][q.id];
@@ -347,7 +354,33 @@ Seg 6: !x>20 is wrong (! applies to x first) → fix: if(!(x>20)) cout<<x;` },
                 } else if (q.type === "subjective") {
                     const textDiv = document.createElement("div");
                     textDiv.className = "space-y-3 pt-1";
-                    textDiv.innerHTML = `<textarea id="input-${q.id}" rows="5" ${isSubmitted ? 'disabled' : ''} oninput="storeAnswer('${q.id}', this.value)" class="w-full bg-slate-950/20 border border-slate-700/80 focus:border-indigo-500/50 rounded-xl p-4 code-font text-xs md:text-sm text-emerald-500 focus:outline-none" placeholder="// Write your answer here...">${savedAnswer || ""}</textarea><button type="button" onclick="toggleSolution('${q.id}')" class="text-[11px] text-indigo-500 hover:text-indigo-400 font-bold flex items-center gap-1.5 cursor-pointer select-none"><span>💡 View Reference Model Solution</span></button><div id="sol-${q.id}" class="hidden bg-slate-950/20 border border-slate-700 rounded-xl p-4 space-y-2"><div class="text-[10px] uppercase tracking-wider font-bold text-indigo-500">Solution Template:</div><pre class="code-font text-main text-xs block whitespace-pre-wrap leading-relaxed">${q.modelSolution}</pre></div>`;
+                    const textarea = document.createElement("textarea");
+                    textarea.id = `input-${q.id}`;
+                    textarea.rows = 5;
+                    textarea.disabled = isSubmitted;
+                    textarea.oninput = () => storeAnswer(q.id, textarea.value);
+                    textarea.className = "w-full bg-slate-950/20 border border-slate-700/80 focus:border-indigo-500/50 rounded-xl p-4 code-font text-xs md:text-sm text-emerald-500 focus:outline-none";
+                    textarea.placeholder = "// Write your answer here...";
+                    textarea.value = savedAnswer || "";
+                    const solutionBtn = document.createElement("button");
+                    solutionBtn.type = "button";
+                    solutionBtn.onclick = () => toggleSolution(q.id);
+                    solutionBtn.className = "text-[11px] text-indigo-500 hover:text-indigo-400 font-bold flex items-center gap-1.5 cursor-pointer select-none";
+                    solutionBtn.innerHTML = `<span>💡 View Reference Model Solution</span>`;
+                    const solutionWrapper = document.createElement("div");
+                    solutionWrapper.id = `sol-${q.id}`;
+                    solutionWrapper.className = "hidden bg-slate-950/20 border border-slate-700 rounded-xl p-4 space-y-2";
+                    const solutionTitle = document.createElement("div");
+                    solutionTitle.className = "text-[10px] uppercase tracking-wider font-bold text-indigo-500";
+                    solutionTitle.textContent = "Solution Template:";
+                    const solutionPre = document.createElement("pre");
+                    solutionPre.className = "code-font text-main text-xs block whitespace-pre-wrap leading-relaxed";
+                    solutionPre.textContent = q.modelSolution;
+                    solutionWrapper.appendChild(solutionTitle);
+                    solutionWrapper.appendChild(solutionPre);
+                    textDiv.appendChild(textarea);
+                    textDiv.appendChild(solutionBtn);
+                    textDiv.appendChild(solutionWrapper);
                     card.appendChild(textDiv);
                 }
                 container.appendChild(card);
