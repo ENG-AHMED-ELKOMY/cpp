@@ -576,24 +576,34 @@ Seg 6: !x>20 is wrong (! applies to x first) → fix: if(!(x>20)) cout<<x;` },
                     textarea.placeholder = "// Write your answer here...";
                     textarea.value = savedAnswer || "";
                     textDiv.appendChild(textarea);
-                    const solutionBtn = document.createElement("button");
-                    solutionBtn.type = "button";
-                    solutionBtn.onclick = () => toggleSolution(q.id);
-                    solutionBtn.className = "text-[11px] text-indigo-500 hover:text-indigo-400 font-bold flex items-center gap-1.5 cursor-pointer select-none";
-                    solutionBtn.innerHTML = `<span>💡 View Reference Model Solution</span>`;
-                    const solutionWrapper = document.createElement("div");
-                    solutionWrapper.id = `sol-${q.id}`;
-                    solutionWrapper.className = "hidden solution-box border rounded-xl p-4 space-y-2";
-                    const solutionTitle = document.createElement("div");
-                    solutionTitle.className = "text-[10px] uppercase tracking-wider font-bold text-indigo-500";
-                    solutionTitle.textContent = "Solution Template:";
-                    const solutionPre = document.createElement("pre");
-                    solutionPre.className = "code-font text-main text-xs block whitespace-pre-wrap leading-relaxed";
-                    solutionPre.textContent = q.modelSolution;
-                    solutionWrapper.appendChild(solutionTitle);
-                    solutionWrapper.appendChild(solutionPre);
-                    textDiv.appendChild(solutionBtn);
-                    textDiv.appendChild(solutionWrapper);
+
+                    // Unified explain button (no API) - shows modelSolution instantly
+                    const explainWrapper = document.createElement("div");
+                    explainWrapper.className = "pt-1 space-y-2";
+                    const explainBtn = document.createElement("button");
+                    explainBtn.type = "button";
+                    explainBtn.className = "text-[11px] text-violet-400 hover:text-violet-300 font-bold flex items-center gap-1.5 cursor-pointer select-none transition-colors";
+                    explainBtn.innerHTML = `<span>🧠 عرض الإجابة النموذجية</span>`;
+                    const explainBox = document.createElement("div");
+                    explainBox.id = `sol-${q.id}`;
+                    explainBox.className = "hidden explain-box border rounded-xl p-4 space-y-2";
+                    const explainTitle = document.createElement("div");
+                    explainTitle.className = "text-[10px] uppercase tracking-wider font-bold text-violet-400";
+                    explainTitle.textContent = "الإجابة النموذجية:";
+                    const explainPre = document.createElement("pre");
+                    explainPre.className = "code-font text-main text-xs block whitespace-pre-wrap leading-relaxed";
+                    explainPre.textContent = q.modelSolution || "لا توجد إجابة نموذجية.";
+                    explainBox.appendChild(explainTitle);
+                    explainBox.appendChild(explainPre);
+                    explainBtn.onclick = () => {
+                        const hidden = explainBox.classList.toggle("hidden");
+                        explainBtn.innerHTML = hidden
+                            ? `<span>🧠 عرض الإجابة النموذجية</span>`
+                            : `<span>🧠 إخفاء الإجابة النموذجية</span>`;
+                    };
+                    explainWrapper.appendChild(explainBtn);
+                    explainWrapper.appendChild(explainBox);
+                    textDiv.appendChild(explainWrapper);
                     card.appendChild(textDiv);
                 }
                 container.appendChild(card);
