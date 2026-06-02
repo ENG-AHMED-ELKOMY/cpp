@@ -576,34 +576,24 @@ Seg 6: !x>20 is wrong (! applies to x first) → fix: if(!(x>20)) cout<<x;` },
                     textarea.placeholder = "// Write your answer here...";
                     textarea.value = savedAnswer || "";
                     textDiv.appendChild(textarea);
-
-                    // Unified explain button (no API) - shows modelSolution instantly
-                    const explainWrapper = document.createElement("div");
-                    explainWrapper.className = "pt-1 space-y-2";
-                    const explainBtn = document.createElement("button");
-                    explainBtn.type = "button";
-                    explainBtn.className = "text-[11px] text-violet-400 hover:text-violet-300 font-bold flex items-center gap-1.5 cursor-pointer select-none transition-colors";
-                    explainBtn.innerHTML = `<span>🧠 عرض الإجابة النموذجية</span>`;
-                    const explainBox = document.createElement("div");
-                    explainBox.id = `sol-${q.id}`;
-                    explainBox.className = "hidden explain-box border rounded-xl p-4 space-y-2";
-                    const explainTitle = document.createElement("div");
-                    explainTitle.className = "text-[10px] uppercase tracking-wider font-bold text-violet-400";
-                    explainTitle.textContent = "الإجابة النموذجية:";
-                    const explainPre = document.createElement("pre");
-                    explainPre.className = "code-font text-main text-xs block whitespace-pre-wrap leading-relaxed";
-                    explainPre.textContent = q.modelSolution || "لا توجد إجابة نموذجية.";
-                    explainBox.appendChild(explainTitle);
-                    explainBox.appendChild(explainPre);
-                    explainBtn.onclick = () => {
-                        const hidden = explainBox.classList.toggle("hidden");
-                        explainBtn.innerHTML = hidden
-                            ? `<span>🧠 عرض الإجابة النموذجية</span>`
-                            : `<span>🧠 إخفاء الإجابة النموذجية</span>`;
-                    };
-                    explainWrapper.appendChild(explainBtn);
-                    explainWrapper.appendChild(explainBox);
-                    textDiv.appendChild(explainWrapper);
+                    const solutionBtn = document.createElement("button");
+                    solutionBtn.type = "button";
+                    solutionBtn.onclick = () => toggleSolution(q.id);
+                    solutionBtn.className = "text-[11px] text-indigo-500 hover:text-indigo-400 font-bold flex items-center gap-1.5 cursor-pointer select-none";
+                    solutionBtn.innerHTML = `<span>💡 View Reference Model Solution</span>`;
+                    const solutionWrapper = document.createElement("div");
+                    solutionWrapper.id = `sol-${q.id}`;
+                    solutionWrapper.className = "hidden solution-box border rounded-xl p-4 space-y-2";
+                    const solutionTitle = document.createElement("div");
+                    solutionTitle.className = "text-[10px] uppercase tracking-wider font-bold text-indigo-500";
+                    solutionTitle.textContent = "Solution Template:";
+                    const solutionPre = document.createElement("pre");
+                    solutionPre.className = "code-font text-main text-xs block whitespace-pre-wrap leading-relaxed";
+                    solutionPre.textContent = q.modelSolution;
+                    solutionWrapper.appendChild(solutionTitle);
+                    solutionWrapper.appendChild(solutionPre);
+                    textDiv.appendChild(solutionBtn);
+                    textDiv.appendChild(solutionWrapper);
                     card.appendChild(textDiv);
                 }
                 container.appendChild(card);
@@ -639,53 +629,27 @@ Seg 6: !x>20 is wrong (! applies to x first) → fix: if(!(x>20)) cout<<x;` },
             return wrapper;
         }
 
-        async function explainAnswer(q, box, contentEl, btn) {
+        function explainAnswer(q, box, contentEl, btn) {
             if (!box.classList.contains("hidden")) {
                 box.classList.add("hidden");
-                btn.innerHTML = `<span>🧠 شرح الإجابة بـ AI</span>`;
+                btn.innerHTML = `<span>🧠 شرح الإجابة</span>`;
                 return;
             }
             box.classList.remove("hidden");
-            btn.innerHTML = `<span>⏳ جاري الشرح...</span>`;
-            btn.disabled = true;
 
-            let questionText = q.text;
-            if (q.code) questionText += `\n\nالكود:\n${q.code}`;
-            let answerText = "";
+            let explanation = "";
             if (q.type === "mcq") {
-                answerText = `الإجابة الصحيحة: ${q.options[q.answer]}`;
+                explanation = `✅ الإجابة الصحيحة:\n${q.options[q.answer]}`;
+                const wrongs = q.options
+                    .map((opt, i) => i !== q.answer ? `✗ ${opt}` : null)
+                    .filter(Boolean);
+                if (wrongs.length) explanation += "\n\nالخيارات الخاطئة:\n" + wrongs.join("\n");
             } else if (q.type === "tf") {
-                answerText = `الإجابة الصحيحة: ${q.answer ? "True (صح)" : "False (غلط)"}`;
+                explanation = `✅ الإجابة الصحيحة: ${q.answer ? "True ✓" : "False ✗"}`;
             }
 
-            const prompt = `أنت مساعد تعليمي في مادة C++ لطلاب السنة الأولى في كلية العلوم.
-السؤال التالي من امتحان COMP102:
-
-${questionText}
-
-${answerText}
-
-اشرح سبب صحة هذه الإجابة بشكل واضح ومبسط باللغة العربية في ٣-٥ جمل. ركز على المفهوم البرمجي الأساسي. لا تكتب مقدمة أو خاتمة.`;
-
-            try {
-                const res = await fetch("https://api.anthropic.com/v1/messages", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        model: "claude-sonnet-4-20250514",
-                        max_tokens: 1000,
-                        messages: [{ role: "user", content: prompt }]
-                    })
-                });
-                const data = await res.json();
-                const text = data.content?.map(b => b.text || "").join("") || "لم يتم الحصول على شرح.";
-                contentEl.textContent = text;
-                btn.innerHTML = `<span>🧠 إخفاء الشرح</span>`;
-            } catch (e) {
-                contentEl.textContent = "حدث خطأ أثناء الاتصال. حاول مرة أخرى.";
-                btn.innerHTML = `<span>🧠 شرح الإجابة بـ AI</span>`;
-            }
-            btn.disabled = false;
+            contentEl.textContent = explanation;
+            btn.innerHTML = `<span>🧠 إخفاء الشرح</span>`;
         }
 
         function toggleSolution(id) {
@@ -727,7 +691,16 @@ ${answerText}
                         if (optWrapper) optWrapper.className = "option-wrapper flex items-center gap-3 border p-4 rounded-xl opacity-60";
                     });
                     const correctWrapper = document.getElementById(`wrapper-${q.id}-${q.answer}`);
-                    if (correctWrapper) correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border border-emerald-500 text-emerald-600 font-bold p-4 rounded-xl opacity-100 shadow-sm";
+                    if (correctWrapper) {
+                        correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border border-emerald-500 text-emerald-600 font-bold p-4 rounded-xl opacity-100 shadow-sm";
+                        // Add "الإجابة الصحيحة" badge if not already there
+                        if (!correctWrapper.querySelector('.correct-badge')) {
+                            const badge = document.createElement('span');
+                            badge.className = 'correct-badge ml-auto text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-lg border border-emerald-500/40 whitespace-nowrap';
+                            badge.textContent = '✅ الإجابة الصحيحة';
+                            correctWrapper.appendChild(badge);
+                        }
+                    }
                     if (savedAns !== undefined) {
                         const userIdx = parseInt(savedAns);
                         if (userIdx === q.answer) {
@@ -747,7 +720,15 @@ ${answerText}
                     if (falseWrapper) falseWrapper.className = "option-wrapper flex items-center gap-3 border px-5 py-3 rounded-xl opacity-60";
                     const correctStr = q.answer ? "true" : "false";
                     const correctWrapper = document.getElementById(`wrapper-${q.id}-${correctStr}`);
-                    if (correctWrapper) correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border border-emerald-500 text-emerald-600 font-bold px-5 py-3 rounded-xl opacity-100";
+                    if (correctWrapper) {
+                        correctWrapper.className = "flex items-center gap-3 bg-emerald-500/20 border border-emerald-500 text-emerald-600 font-bold px-5 py-3 rounded-xl opacity-100";
+                        if (!correctWrapper.querySelector('.correct-badge')) {
+                            const badge = document.createElement('span');
+                            badge.className = 'correct-badge ml-auto text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-lg border border-emerald-500/40 whitespace-nowrap';
+                            badge.textContent = '✅ الإجابة الصحيحة';
+                            correctWrapper.appendChild(badge);
+                        }
+                    }
                     if (savedAns !== undefined) {
                         if (savedAns === correctStr) {
                             if (statusEl) statusEl.innerHTML = "<span class='text-emerald-500 font-bold'>✓ Correct</span>";
